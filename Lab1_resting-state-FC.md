@@ -40,7 +40,6 @@ We will use the steps you learned from last block to preprocess the resting-stat
   - Change to normal search and 12 DOF for Standard space
   ![](Data/feat3.png)
 
-
 - Hit Go!
 
 - We then need to manually do "low-pass" filter. That is because FEAT does not support it (only does highpass). We have to do it via command line in the terminal.
@@ -54,7 +53,7 @@ by doing
 - Use fsleys to look at the output.
 
 
-## Output seed time-series
+## Step 2. Extract the seed time-series
 - Go to preprocessed output folder
  - `cd ~/fmrilab/data/bids/sub-001/rest.feat/`
 - Use fsleyes to open up the preprocessed structural image
@@ -75,7 +74,7 @@ x=34 (top row), y=-12 (middle row), z=24 (lower row)
 - Extract time-series from right_motor from the low-pass filetered data, do: \
 `fslmeants -i filtered_func_data_bp.nii.gz -o right_motor.txt -m right_motor.nii.gz`
 
-## Run the functional connectivity analysis using FEAT
+## Step 3. Run the functional connectivity analysis using FEAT. Inputing the seed time-series as the regressor
 
 - In the terminal, do: `cd ~/fmrilab/data/bids/sub-001/`
 - Start `fsl`, open `FEAT`
