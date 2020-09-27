@@ -67,10 +67,31 @@ x=34 (top row), y=-12 (middle row), z=24 (lower row)
 - In the Overlay list panel, select filtered_func_data, write down the "voxel location" Which should be  21 32 26
 ![](Data/fsleye3.png)
 - We will now create an ROI mask around that coordinate. In the terminal, do
-`fslmaths filtered_func_data.nii.gz -mul 0 -add 1 -roi 21 1 32 1 26 1 0 1 right_motor -odt float` \
-`fslmaths right_motor.nii.gz -kernel sphere 5 -fmean right_motor -odt float`
+  - `fslmaths filtered_func_data.nii.gz -mul 0 -add 1 -roi 21 1 32 1 26 1 0 1 right_motor -odt float`
+  -`fslmaths right_motor.nii.gz -kernel sphere 5 -fmean right_motor -odt float`
   - Remember, these commands will only work if you are in the directory where these files are saved.
 - Use the skills your learned and check the anatomical location of right_motor.nii.gz file that you just created.
 
 - Extract time-series from right_motor from the low-pass filetered data, do: \
 `fslmeants -i filtered_func_data_bp.nii.gz -o right_motor.txt -m right_motor.nii.gz`
+
+## Run the functional connectivity analysis using FEAT
+
+- In the terminal, do: `cd ~/fmrilab/data/bids/sub-001/`
+- Start `fsl`, open `FEAT`
+- Change `Full analysis` to `Statistics`
+- Click Input is a FEAT directory, select the `rest.feat` folder as input.
+- Click Stats tab. Change `Don't add Motion Parameters` to `Standard + Extended Motion Parameters`
+![](Data/feat4.png)
+
+- Click Full model setup
+  - In EV name, enter "right motor"
+  - Change `Basic shape` to `Custom (1 entry per volume)`
+  - In Filename, click the folder icon and select `right_motor.txt`
+  - Change `Convolution` to `None`, and unclick Add temporal derivative and Apply temporal filtering
+![](Data/feat5.png)
+- View the design, then hit Go.
+- Inspect progress in the FEAT report html page.
+- In the terminal, launch `fsleyes again`, we will load both the `reg/highres` and the `rendered_thresh_zstat1.nii.gz` images.
+- After loading the `rendered_thresh_zstat1`, we can change both the colorbar and the min threshold to examine regions that show strong functional connectivity with our right motor seed.
+![](Data/fsleye4.png)
