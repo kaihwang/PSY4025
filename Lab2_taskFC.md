@@ -44,7 +44,7 @@ We will be using sub-001's task-flanker data.
 ## Step 2. Decide which ROI you want to use as your seed ROI and extract time series from it.
 Let us open up results from the feat analysis, and decide which ROI we want to use to examine task functional connectivity with this ROI.
   - Open up `fsleyes`
-  - Display both `highres` (under reg/) and `rendered_thresh_zstat.nii.gz`
+  - Display both `highres` (under reg/) and `rendered_thresh_zfstat1.nii.gz`
   - Threshold it to display activation blobs with z > 2.
   - Let us find a peak activation locus that we want to use to plot down our ROI: voxel location (21 19 22), coordinate(8 -10 25)
   - We need to run the following commands in the terminal to create the ROI at this location and extract its timeseires.
@@ -52,7 +52,7 @@ Let us open up results from the feat analysis, and decide which ROI we want to u
    - `fslmaths filtered_func_data.nii.gz -mul 0 -add 1 -roi 21 1 19 1 22 1 0 1 rIPS -odt float`
    - `fslmaths rIPS.nii.gz -kernel sphere 8 -fmean rIPS -odt float`
    - `fslmeants -i filtered_func_data.nii.gz -o rIPS.txt -m rIPS.nii.gz`
-   - We will use the resulting rIPS.txt as the input to do our flanker_taskFC
+   - We will use the resulting rIPS.txt as the input timeseries to do our flanker_taskFC
 
 
 ## Step 3. perform PPI with FEAT
@@ -67,7 +67,7 @@ We will setup a new feat analysis by inputing the timeseries we extracted.
   - For EV4, it will be the "PPI" regressor, where the Congruent condition interacts with the rIPS timeseries. Name it `PPI_con`.
   - Select `interaction` under `Basic Shape`. Select `1` and `3` for `Between EVs`: this indicates that you want to allow the congruent (EV1) to interact with the seed timeseries (Ev3).
   - For make zero, select `Centre` for 1 and `mean` for 3
-  ![](Data/ppi1.png)
+  ![](Data/ppi2.png)
   - For EV5, it will be the PPI regressor for incongruent interacts with the rIPIS timeseries. Name it `PPI_Incon`.
   - Select `interaction` under `Basic Shape`. Select `2` and `3` for `Between EVs`: this indicates that you want to allow the Incongruent (EV2) to interact with the seed timeseries (Ev3).
   - For make zero, select `Centre` for 2 and `mean` for 3
@@ -75,8 +75,12 @@ We will setup a new feat analysis by inputing the timeseries we extracted.
   - We will have 5 contrasts. Set it up this way:
   ![](Data/ppi4.png)
 
+  - Pay attention to the model design
+  ![](Data/ppimodel.png)
+
 ## Step4 Look at the results.
 - In general, PPI analysis lacks power, so not surprising if we don't find much. We will discuss the issues in class.
+![](Data/ppi5.png)
 - If you do find a significant cluster in any of the contrasts, what do they mean?
   - For regions found to be significant for the contrast of gPPI_congruent, what does it mean?
   - For regions found to be significant for the contrast of gPPI_Incongruent, what does it mean?
