@@ -1,8 +1,8 @@
 # Hands on Lab session #1, resting-state functional connectivity
 
 For this hands on lab practice, we will be using data from sub-001 that you downloaded and processed for the previous block. \
-They should be located at `$HOME/fmrilab/data/`, you should be able to navigate to it by doing `cd ~/fmrilab/data`.   \
-You should also have the "skull-striped T1 image" saved under `$HOME/fmrilab/data/bids/sub-001/anat/` \
+They should be located at `$HOME/fmriLab/data/`, you should be able to navigate to it by doing `cd ~/fmriLab/data`.   \
+You should also have the "skull-striped T1 image" saved under `$HOME/fmriLab/data/bids/sub-001/anat/` \
 If not, please follow the instructions and redo the steps described here: https://github.com/mwvoss/MRI-lab-classes/blob/master/PSY4025-2020-FA2020/practical_download-and-prepare-class-data.md
 
 
@@ -19,7 +19,7 @@ We will use the steps you learned from last block to preprocess the resting-stat
 - First, use the skills you learned from the last block, open up `sub-001-task-rest_bold.nii.gz` with fsleyes and look at the data. Data should be located at `data/bids/sub-001/func`
 - Click on `View` and select `Timeseries`
 - Go to the subject folder and launch FSL\
-`cd ~/fmrilab/data/bids/sub-001/`\
+`cd ~/fmriLab/data/bids/sub-001/`\
 `fsl`
 - In FSL GUI, open 'FEAT FMRI analysis'
 - Select `sub-001-task-rest_bold.nii.gz` as input 4D. Set output to `rest.feat`
@@ -43,9 +43,9 @@ We will use the steps you learned from last block to preprocess the resting-stat
 - Hit Go!
 
 - We then need to manually do "low-pass" filter. That is because FEAT does not support it (only does highpass). We have to do it via command line in the terminal.
-  - Now open the terminal, go back to the FEAT output folder in `~/fmrilab/data/bids/sub-001/rest.feat`
+  - Now open the terminal, go back to the FEAT output folder in `~/fmriLab/data/bids/sub-001/rest.feat`
 by doing
-`cd ~/fmrilab/data/bids/sub-001/rest.feat`
+`cd ~/fmriLab/data/bids/sub-001/rest.feat`
   - Note, this might not work if you didn't save rest.feat under sub-001, in that case you have to find our where you saved it.
   - Then run this command:
 `fslmaths filtered_func_data.nii.gz -bptf -1 2.5 filtered_func_data_bp.nii.gz`
@@ -55,7 +55,7 @@ by doing
 
 ## Step 2. Extract the seed time-series
 - Go to preprocessed output folder
- - `cd ~/fmrilab/data/bids/sub-001/rest.feat/`
+ - `cd ~/fmriLab/data/bids/sub-001/rest.feat/`
 - Use fsleyes to open up the preprocessed structural image
   - `file`, `add from file`, goto `reg`, select `highres`
 - Add the filtered_func_data, use it as overlay. Use the skills you learned from the previous section to play around with opacity and color. Make sure they are nicely aligned.
@@ -76,7 +76,7 @@ x=34 (top row), y=-12 (middle row), z=24 (lower row)
 
 ## Step 3. Run the functional connectivity analysis using FEAT. Inputing the seed time-series as the regressor
 
-- In the terminal, do: `cd ~/fmrilab/data/bids/sub-001/`
+- In the terminal, do: `cd ~/fmriLab/data/bids/sub-001/`
 - Start `fsl`, open `FEAT`
 - Change `Full analysis` to `Statistics`
 - Click Input is a FEAT directory, select the `rest.feat` folder as input.
