@@ -48,7 +48,7 @@ Let us open up results from the feat analysis, and decide which ROI we want to u
   - Threshold it to display activation blobs with z > 2.
   - Let us find a peak activation locus that we want to use to plot down our ROI: voxel location (21 19 22), coordinate(8 -10 25)
   - We need to run the following commands in the terminal to create the ROI at this location and extract its timeseires.
-   - First, in the terminal, navigate to the FEAT folder: `cd ~/fmrilab/data/bids/sub-001/func/flanker_FC.feat` or wherever you saved your FEAT analysis
+   - First, in the terminal, navigate to the FEAT folder: `cd ~/fmriLab/data/bids/sub-001/func/flanker_FC.feat` or wherever you saved your FEAT analysis
    - `fslmaths filtered_func_data.nii.gz -mul 0 -add 1 -roi 21 1 19 1 22 1 0 1 rIPS -odt float`
    - `fslmaths rIPS.nii.gz -kernel sphere 8 -fmean rIPS -odt float`
    - `fslmeants -i filtered_func_data.nii.gz -o rIPS.txt -m rIPS.nii.gz`

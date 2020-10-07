@@ -69,7 +69,7 @@ x=34 (top row), y=-12 (middle row), z=24 (lower row)
 ![](Data/fsleye3.png)
 - We will now create an ROI mask around that coordinate. In the terminal, do
   - `fslmaths filtered_func_data.nii.gz -mul 0 -add 1 -roi 21 1 32 1 26 1 0 1 right_motor -odt float`
-  -`fslmaths right_motor.nii.gz -kernel sphere 5 -fmean right_motor -odt float`
+  - `fslmaths right_motor.nii.gz -kernel sphere 5 -fmean right_motor -odt float`
   - Remember, these commands will only work if you are in the directory where these files are saved.
 - Use the skills your learned and check the anatomical location of right_motor.nii.gz file that you just created.
 
