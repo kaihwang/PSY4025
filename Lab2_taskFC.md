@@ -77,6 +77,8 @@ We will setup a new feat analysis by inputing the timeseries we extracted.
 
   - Pay attention to the model design
   ![](Data/ppimodel.png)
+  
+  - In the `post-stats` page, change thresholding to `Uncorrected`
 
 ## Step4 Look at the results.
 - In general, PPI analysis lacks power, so not surprising if we don't find much. We will discuss the issues in class.
