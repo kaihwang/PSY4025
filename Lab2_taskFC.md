@@ -64,11 +64,11 @@ We will setup a new feat analysis by inputing the timeseries we extracted.
   - Ev1 to 2 should be identical to the previous feat you ran. For congruent and incongruent trials.
   - For Ev3, we will input the rIPS timeseries. Select `Custom (1 entry per volume)`. Deslect `temporal derivative` and `temporal filtering`
   ![](Data/ppi1.png)
-  - For EV4, it will be the "PPI" regressor, where the Congruent condition interacts with the rIPS timeseries. Name it `PPI_con`.
+  - For EV4, it will be the "PPI" regressor, where the Congruent condition interacts with the preSMA timeseries. Name it `PPI_con`.
   - Select `interaction` under `Basic Shape`. Select `1` and `3` for `Between EVs`: this indicates that you want to allow the congruent (EV1) to interact with the seed timeseries (Ev3).
   - For make zero, select `Centre` for 1 and `mean` for 3
   ![](Data/ppi2.png)
-  - For EV5, it will be the PPI regressor for incongruent interacts with the rIPIS timeseries. Name it `PPI_Incon`.
+  - For EV5, it will be the PPI regressor for incongruent interacts with the preSMA timeseries. Name it `PPI_Incon`.
   - Select `interaction` under `Basic Shape`. Select `2` and `3` for `Between EVs`: this indicates that you want to allow the Incongruent (EV2) to interact with the seed timeseries (Ev3).
   - For make zero, select `Centre` for 2 and `mean` for 3
   ![](Data/ppi3.png)   
