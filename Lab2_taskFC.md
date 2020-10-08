@@ -41,6 +41,7 @@ We will be using sub-001's task-flanker data.
 - Hit run!
 
 
+
 ## Step 2. Decide which ROI you want to use as your seed ROI and extract time series from it.
 Let us open up results from the feat analysis, and decide which ROI we want to use to examine task functional connectivity with this ROI.
   - Open up `fsleyes`
@@ -77,12 +78,12 @@ We will setup a new feat analysis by inputing the timeseries we extracted.
 
   - Pay attention to the model design
   ![](Data/ppimodel.png)
-  
+
   - In the `post-stats` page, change thresholding to `Uncorrected`
 
 ## Step4 Look at the results.
 - In general, PPI analysis lacks power, so not surprising if we don't find much. We will discuss the issues in class.
-![](Data/ppi5.png)
+![](Data/ppi6.png)
 - If you do find a significant cluster in any of the contrasts, what do they mean?
   - For regions found to be significant for the contrast of gPPI_congruent, what does it mean?
   - For regions found to be significant for the contrast of gPPI_Incongruent, what does it mean?
