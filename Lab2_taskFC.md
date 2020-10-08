@@ -51,8 +51,8 @@ Let us open up results from the feat analysis, and decide which ROI we want to u
    - First, in the terminal, navigate to the FEAT folder: `cd ~/fmriLab/data/bids/sub-001/func/flanker_FC.feat` or wherever you saved your FEAT analysis
    - `fslmaths filtered_func_data.nii.gz -mul 0 -add 1 -roi 21 1 19 1 22 1 0 1 preSMA -odt float`
    - `fslmaths preSMA.nii.gz -kernel sphere 8 -fmean preSMA -odt float`
-   - `fslmeants -i filtered_func_data.nii.gz -o rIPS.txt -m preSMA.nii.gz`
-   - We will use the resulting rIPS.txt as the input timeseries to do our flanker_taskFC
+   - `fslmeants -i filtered_func_data.nii.gz -o preSMA.txt -m preSMA.nii.gz`
+   - We will use the resulting preSMA.txt as the input timeseries to do our flanker_taskFC
 
 
 ## Step 3. perform PPI with FEAT
