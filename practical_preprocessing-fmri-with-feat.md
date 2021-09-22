@@ -12,7 +12,7 @@ https://fastx.divms.uiowa.edu:3443/  <br/>
 *  move to the bids directory in the terminal by typing `cd ~/fmriLab/data/bids`
 *  check that you're in the right place, type `ls` and you should see folders named `derivatives`,`sub-001`, and `sub-002`
    *  `derivatives` is a folder for output of functional analyses
-   *  protects the raw data from being over-written 
+   *  protects the raw data from being over-written
 *  make new derivatives folders for sub-001 and sub-002
    *  type `mkdir -p derivatives/sub-001/func`
    *  type `mkdir -p derivatives/sub-002/func`
@@ -22,16 +22,16 @@ https://fastx.divms.uiowa.edu:3443/  <br/>
 *  in terminal, type `fsl` and click on `FEAT FMRI analysis`
 
 **Define scope of `First-level analysis` to `Preprocessing` at the top of the GUI:**
-<br/> 
+<br/>
 ![feat-set-preprocessing-only](images/preprocessing_feat-set-preprocessing-only.png)
 <br/>
 <br/>
 
 **Data tab in FEAT GUI:**<br/>
-*  on the `Data` tab, click `Select 4D data` and select sub-001's fMRI flanker data: 
+*  on the `Data` tab, click `Select 4D data` and select sub-001's fMRI flanker data:
 ![feat-select-4D-input](images/preprocessing_feat-select-4D-input.png) <br/>
 
-*  then choose output directory: click on the folder icon, navigate to sub-001's func folder, click `OK`, then specify the location by typing `flanker.feat` in the `Data` tab like so: <br/>
+*  then choose output directory: click on the folder icon, navigate to sub-001's func folder under derivatives, click `OK`, then specify the location by typing `flanker.feat` in the `Data` tab like so: <br/>
 ![feat-output-directory](images/preprocessing_feat-output-directory.png)
 <br/>
 
@@ -41,7 +41,7 @@ https://fastx.divms.uiowa.edu:3443/  <br/>
 *  Keep slice-timing as `None` here
 *  Keep BET brain extraction on for the functional data (yellow box means 'on')
 *  Set spatial smoothing to 6 mm
-*  Keep the highpass filter on 
+*  Keep the highpass filter on
 <br/>
 
 
