@@ -8,7 +8,7 @@ https://fastx.divms.uiowa.edu:3443/  <br/>
 <br/>
 
 
-**Download behavioral and reconstructed imaging data**, download the data we collected: <br/>
+**Download behavioral and reconstructed imaging data**, download the data we provided: <br/>
 *  Open your terminal by clicking on the icon showing a little black screen
 *  Type `pwd`. Where are you in the computer filesystem?
 *  Type `ls`. What other files are here? 
