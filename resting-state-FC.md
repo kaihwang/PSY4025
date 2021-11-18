@@ -48,7 +48,7 @@ by doing
 `cd ~/fmriLab/data/bids/sub-001/rest.feat`
   - Note, this might not work if you didn't save rest.feat under sub-001, in that case you have to find our where you saved it.
   - Then run this command:
-`fslmaths filtered_func_data.nii.gz -bptf -1 2.5 filtered_func_data_bp.nii.gz`
+`fslmaths filtered_func_data.nii.gz -bptf -1 2.5 filtered_func_data.nii.gz`
 - Here we are trying to do lowpass filtering of 0.08 hz. the -bptf option expects a high-pass sigma and a low-pass sigma, which can be caluclated by
  - highpass_sigma = 1 / (2 * TR * HP_freq). Here we use "-1" because we already highpassed the data.
  - lowpass_sigma = 1 / (2 * TR * LP_freq)). Remember TR is 2s.
