@@ -74,7 +74,7 @@ x=34 (top row), y=-12 (middle row), z=24 (lower row)
 - Use the skills your learned and check the anatomical location of right_motor.nii.gz file that you just created.
 
 - Extract time-series from right_motor from the low-pass filetered data, do: \
-`fslmeants -i filtered_func_data_bp.nii.gz -o right_motor.txt -m right_motor.nii.gz`
+`fslmeants -i filtered_func_data.nii.gz -o right_motor.txt -m right_motor.nii.gz`
 
 ## Step 3. Run the functional connectivity analysis using FEAT. Inputing the seed time-series as the regressor
 
