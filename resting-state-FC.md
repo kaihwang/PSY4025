@@ -78,6 +78,7 @@ x=34 (top row), y=-12 (middle row), z=24 (lower row)
 
 - Extract time-series from right_motor from the low-pass filetered data, do: \
 `fslmeants -i filtered_func_data.nii.gz -o right_motor.txt -m right_motor.nii.gz`
+`fslmeants -i filtered_func_data.nii.gz -o left_LGN.txt -m left_LGN.nii.gz`
 
 ## Step 3. Run the functional connectivity analysis using FEAT. Inputing the seed time-series as the regressor
 
