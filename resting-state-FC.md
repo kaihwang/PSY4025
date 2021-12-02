@@ -72,6 +72,7 @@ x=34 (top row), y=-12 (middle row), z=24 (lower row)
   - `fslmaths filtered_func_data.nii.gz -mul 0 -add 1 -roi 37 1 27 1 16 1 0 1 left_LGN -odt float`
 
   - `fslmaths right_motor.nii.gz -kernel sphere 5 -fmean right_motor -odt float`
+  - `fslmaths left_LGN.nii.gz -kernel sphere 5 -fmean left_LGN -odt float`
   - Remember, these commands will only work if you are in the directory where these files are saved.
 - Use the skills your learned and check the anatomical location of right_motor.nii.gz file that you just created.
 
