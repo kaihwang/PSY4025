@@ -34,7 +34,3 @@ export LD_LIBRARY_PATH=/opt/fsl/extralibs
 <br>
 <br>
 
-
-export LD_LIBRARY_PATH=/opt/fsl/extralibs
-. ${FSLDIR}/etc/fslconf/fsl.sh
-```
