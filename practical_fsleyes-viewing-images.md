@@ -40,9 +40,9 @@ https://fastx.divms.uiowa.edu:3443/  <br/>
 <br/>
 
 **Understanding the T1 image**: <br/>
-* Initial observations: try to answer these questions with your neighbours
+* Initial observations: try to answer these questions with your neighbors
   * What kinds of tissues are the brightest and darkest?
-  * Place your cursor at different places in the image and see how it affects coordinates shown here:
+  * Place your cursor at different places in the image and see how it affects the coordinates shown here:
   ![image-location-coordinate](images/Introduction-to-FSLeyes_coordinates.png)
   * In addition to the coordinate location of your cursor, what additional information is being shown here?
     ![image-location-coordinate-intensity](images/Introduction-to-FSLeyes_coordinates-and-intensity.png)
@@ -59,16 +59,16 @@ https://fastx.divms.uiowa.edu:3443/  <br/>
 
 
 **Add a functional image on top of the structural**: <br/>
-*  Use steps learned from above to add a new image
+*  Use the steps learned above to add a new image
 *  Add the file named `sub-97_task-flanker_bold.nii.gz`
-*  Place cursor in the brain somewhere and then toggle on/off the functional image using this button:
+*  Place the cursor in the brain somewhere and then toggle on/off the functional image using this button:
 ![toggle-eye-fsleyes](images/Introduction-to-FSLeyes_toggle-eye-fsleyes.png)
 * Observations
   * What kinds of tissues are the brightest and darkest?
   * Does the functional image have more or less anatomical detail than the structural T1 image?
   * Use the menu at the top-left of your screen to view the BOLD timeseries for a voxel: View -> Time Series
     * Compare time series data inside and outside the brain
-    * Change plotting mode to compare magnitude of signal change in different locations
+    * Change plotting mode to compare the magnitude of signal change in different locations
   * So, how many dimensions are there in the functional image?
 * Example with timeseries viewer on:
   ![fsleyes-timeseries](images/Introduction-to-FSLeyes_time-series.png)
