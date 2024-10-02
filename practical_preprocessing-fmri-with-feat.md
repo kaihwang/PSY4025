@@ -1,39 +1,24 @@
-**By the end of this practical you should be able to:** <br/>
-* [ ] open FSL's FEAT GUI <br/>
-* [ ] use the FEAT GUI to preprocess our functional MRI data <br/>
-* [ ] locate and check FSL's preprocessing report <br/>
-<br/>
 
-**Access FastX** through the remote login: <br>
-https://fastx.divms.uiowa.edu:3443/  <br/>
-<br/>
-
-**Prepare a folder to hold output for each subject:** <br/>
-*  move to the bids directory in the terminal by typing `cd ~/fmriLab/data/bids`
-*  check that you're in the right place, type `ls` and you should see folders named `derivatives`,`sub-001`, and `sub-002`
-   *  `derivatives` is a folder for output of functional analyses
-   *  protects the raw data from being over-written
-*  make new derivatives folders for sub-001 and sub-002
-   *  type `mkdir -p derivatives/sub-001/func`
-   *  type `mkdir -p derivatives/sub-002/func`
-<br/>
 
 **Open the FEAT GUI:**<br/>
-*  in terminal, type `fsl` and click on `FEAT FMRI analysis`
+*  If FSL menu still open, let's move to the `FEAT FMRI analysis` menu
+*  If FSL menu closed, in terminal type `fsl` and click on `FEAT FMRI analysis`
+
 
 **Define scope of `First-level analysis` to `Preprocessing` at the top of the GUI:**
-<br/>
-![feat-set-preprocessing-only](images/preprocessing_feat-set-preprocessing-only.png)
+<br/> 
+![preprocessing_feat-set-preprocessing-only](https://github.com/mwvoss/PSY4025_FA23/assets/24663988/309dafec-e7dc-4ff5-99f8-2250e61a3b7e)
 <br/>
 <br/>
 
 **Data tab in FEAT GUI:**<br/>
-*  on the `Data` tab, click `Select 4D data` and select sub-001's fMRI flanker data:
-![feat-select-4D-input](images/preprocessing_feat-select-4D-input.png) <br/>
+*  On the `Data` tab, click `Select 4D data` and select your subject's fMRI flanker data
+*  For example, subject sub-001's functional flanker data is in the `func` folder and named `sub-001_task-flanker_bold.nii.gz`
+*  Set the `Output directory` as that subject's `func` folder
+*  Name your output folder `flanker.feat` like the example below
+*  Do not delete volumes or change the high-pass filter <br/>
 
-*  then choose output directory: click on the folder icon, navigate to sub-001's func folder under derivatives, click `OK`, then specify the location by typing `flanker.feat` in the `Data` tab like so: <br/>
-![feat-output-directory](images/preprocessing_feat-output-directory.png)
-<br/>
+![InputOutput](https://github.com/mwvoss/PSY4025_FA23/assets/24663988/e1589a1e-d2c6-4b78-9574-11ce9e980d97)
 
 
 **Pre-stats tab in FEAT GUI:**<br/>
@@ -41,24 +26,37 @@ https://fastx.divms.uiowa.edu:3443/  <br/>
 *  Keep slice-timing as `None` here
 *  Keep BET brain extraction on for the functional data (yellow box means 'on')
 *  Set spatial smoothing to 6 mm
-*  Keep the highpass filter on
+*  Keep the highpass filter on 
+*  Do not turn on MELODIC ICA data exploration
 <br/>
+
+![PreStats](https://github.com/mwvoss/PSY4025_FA23/assets/24663988/53de9dd7-3b9c-4242-bd3c-85f8f704760a)
+
 
 
 **Registration tab in FEAT GUI:**<br/>
 *  Select `Main structural image` to open that window
-*  Setup yours as shown below, with your `T1w_brain` image as the main structural image, and change search options to `Full search` and `12 DOF` <br/>
+*  Set your skull-stripped `_brain` image that you skull-stripped as the main structural image
+*  Change search options to `Full search` and `12 DOF` <br/>
 
-![feat-registration-setup](images/preprocessing_feat-registration-setup.png)
+![Registration](https://github.com/mwvoss/PSY4025_FA23/assets/24663988/830efd78-6083-461b-bb4a-e9dbbaf91084)
 
 
 **When you've set registration, click `Go`** <br/>
 
-An html file should pop up in your browser, showing a log of the analyses progress. As it's running let's locate and talk through the output. <br/>
+An html file should pop up in your browser, showing a log of the analyses progress. For preprocessing output, we will focus on `Registration` and `Pre-Stats`. As it's running let's locate and talk through the output.  <br/>
 
-![feat-html-report-header](images/preprocessing_feat-html-report-header.png)
+![sub001_preproc](https://github.com/mwvoss/PSY4025_FA23/assets/24663988/3acb5253-d7d8-42f9-a840-872ef54c8935)
+
 
 <br/>
-<br/>
 
-**Once you've successfully run preprocessing for sub-001, repeat these steps for sub-002 before next class.** <br/>
+**On your own: complete sub-002 and sub-003. Results for registration and motion are shown below as a check of your output.**<br/>
+
+<img width="930" alt="sub002" src="https://github.com/mwvoss/PSY4025_FA23/assets/24663988/1264adb2-645b-48a4-b5c7-e70cc1af419c">
+
+<br/>
+<img width="929" alt="sub003" src="https://github.com/mwvoss/PSY4025_FA23/assets/24663988/603157fb-b521-4b82-81d6-7e4d6b55551d">
+
+
+<br/>
