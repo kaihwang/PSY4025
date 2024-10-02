@@ -1,62 +1,49 @@
-**By the end of this practical you should be able to:** <br/>
+**By the end of this practical you should be able to complete preprocessing on your data with the following steps:** <br/>
 * [ ] use FSL's [bet](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/BET/UserGuide) tool to remove the brain from a T1 image <br/>
 * [ ] use FSLeyes to check the output of `bet` <br/> 
-<br/>
+
+<br/> 
 
 **Access FastX** through the remote login: <br>
 https://fastx.divms.uiowa.edu:3443/  <br/>
 <br/>
 
 
-**Download behavioral and reconstructed imaging data**, download the data we provided: <br/>
-*  Open your terminal by clicking on the icon showing a little black screen
-*  Type `pwd`. Where are you in the computer filesystem?
-*  Type `ls`. What other files are here? 
-*  Go into the folder you made previously by typing `cd fmriLab`
-*  Copy/paste `wget -O flanker-data.tar.gz https://osf.io/gk2cy/download`
-*  Use commands introduced previously to see what was downloaded
-*  To unpack the download copy/paste `tar -xvf flanker-data.tar.gz`
-*  Move yourself into the folder with data by typing `cd data`
-   *  You should see two directories named `behData` and `bids`
-   *  Navigate to these within your file browser and let's talk about what these are...
-<br/>
+**In the terminal move to the folder where our downloaded data is:**<br/>
+* A the terminal prompt type: `cd fmriLab`
+* Type `ls` and you should see the data you downloaded as a folder named `flankerData_n4`
 
-**Prepare the T1 for functional analysis by stripping away the skull**: <br/>
-*  Also known as `brain extraction` or `skull-stripping`
-*  In the terminal, move yourself to where your data are
-   *  Type `cd bids`
-   *  What's here? Type `ls`
-*  We will use FSL's `bet` tool (**b**rain **e**xtraction **t**ool) to strip away skull
-   *  Type `fsl`
-   *  Click this button: ![bet-button](images/download-and-prepare_bet-button.png)
-   *  Below is an example of file input and output with default settings. Set yours up and click `Go`. 
+<br/> 
 
-Example bet setup for `sub-001` with default settings: <br/>
-![bet-default](images/download-and-prepare_bet-default.png)
+**Using FSL's `brain extraction tool` to skull-strip:**<br/>
+* At the prompt type `fsl`
+* Click the "BET brain extraction" button on the FSL menu
+* Steps to set up `BET`
+  * Click the yellow folder to select your defaced T1 image with skull as your `Input Image` 
+  * FSL will automatically fill in the `Output Image` to have the same file name as your T1 with `_brain` at the end
+  * Expand `Advanced Options`
+     * Select `Output binary brain mask image`
+  * Select `Go` to run `BET`
+* Example default settings <br/> 
+![betDefault](https://github.com/mwvoss/PSY4025_FA23/assets/24663988/b39c96b4-29ba-455d-9135-f74f5b8d2eec)
 
 <br/>
 
-**Check the results of `bet`**: <br/>
-*  Use `fsleyes` to open the T1 image with skull and overlay the skull-stripped image we just made that ends with `_brain.nii.gz`
-*  Change the color of the overlay for the skull-stripped image
-*  Reduce the opacity of the overlay so you can see brain/non-brain boundaries
-*  Let's evaluate together...
-   *  Any brain tissue missing?
-   *  Anything counted as brain that shouldn't be?
+**Checking BET:**<br/>
+* Use the GUI menu to open your defaced T1 and brain mask in FSLeyes
+* Use the `Opacity` slider to make the mask transparent so you can see the brain image in the background
+* Checklist
+  * [ ] Top of the brain: does the mask cover the brain and not spill into the eyes or skull?
+  * [ ] Bottom of the brain: does the mask "hug" the brainstem or spill into the throat?
 
 <br/>
 
-**Suggested modified `bet` settings**: <br/>
-*  Set `fractional intensity threshold` to .4
-*  Use drop-down menu for `bet` pre-baked settings to select `Robust brain centre estimation (iterates bet2 several times)`
-*  Click `Go`
-*  Check results
+**Modifying BET settings:**<br/>
+* Open or go back to the BET GUI
+* An advanced option that always helps: Use the dropdown menu to select `Robust brain centre estimation`
+* If your mask was too small or large at the top of the brain, change the `Fractional intensity threshold` 
+* If your mask was too small or large at either the top or the bottom of the brain, change the `Threshold gradient`
 
-<br/>
+![betMods](https://github.com/mwvoss/PSY4025_FA23/assets/24663988/5b5a6a4f-fffb-4a25-8920-c1c52e6e6839)
 
-**Repeat steps with `sub-002`:** <br/>
-*  Once you have a skull-stripped image named `sub-001_T1w_brain.nii.gz` that you're happy with, try the same settings on `sub-002` and evaluate.
 
-<br/>
-
-**Before the next lab**, you should have a good skull-stripped T1 image for both subjects. 
